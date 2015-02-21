@@ -4,7 +4,7 @@ public class Tail : MonoBehaviour
 {
     public Transform target;
     public float targetDistance;
-
+    private Vector3 pos = new Vector3(2, 0, 2);
 
     public void Update()
     {
