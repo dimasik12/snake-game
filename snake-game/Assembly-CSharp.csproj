@@ -54,6 +54,7 @@
      <Compile Include="Assets\CNControls\Scripts\CNThrowableTouchpad.cs" />
      <Compile Include="Assets\CNControls\Scripts\CNTouchpad.cs" />
      <Compile Include="Assets\Check.cs" />
+     <Compile Include="Assets\Exit.cs" />
      <Compile Include="Assets\Food.cs" />
      <Compile Include="Assets\Game.cs" />
      <Compile Include="Assets\Game2\Snake.cs" />
@@ -64,6 +65,8 @@
      <Compile Include="Assets\MoveMotionPack\SampleScene\Scripts\PlayManager.cs" />
      <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\Tail.cs" />
+     <Compile Include="Assets\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\TopCamera.cs" />
      <None Include="Assets\MoveMotionPack\SampleScene\Shaders\ReflectiveDiffuseSpecTransp.shader" />
      <None Include="Assets\MoveMotionPack\SampleScene\Shaders\DiffuseReflectiveShader.shader" />
      <None Include="Assets\MoveMotionPack\SampleScene\Shaders\ReflectiveDiffuseSpec.shader" />
