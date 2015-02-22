@@ -75,14 +75,14 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
      
         // вращаем трансформ вокруг оси Y 
-        //transform.Rotate(0, rotationSpeed * Time.deltaTime * horizontal, 0);
+        transform.Rotate(0, rotationSpeed * Time.deltaTime * horizontal, 0);
 
         _testing = true; // маленкий хинт, для того, чтобы не обрабатывать несколько коллизий за кадр
 
         // движение выполняем с помощью контроллера в сторону, куда смотрит трансформ игрока
         // двигаем змею постоянно
-        _controller.Move(rotate * speed * Time.deltaTime/* * vertical*/);
-        
+        _controller.Move(transform.forward * speed * Time.deltaTime/* * vertical*/);
+        /*
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rot.eulerAngles = new Vector3(0, 270, 0);
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
             rotate = transform.forward;
             rot.eulerAngles = new Vector3(0, 0, 0);
             HeadSnake.transform.rotation = rot;
-        }
+        }*/
     }
     
     void OnTriggerEnter(Collider col)
