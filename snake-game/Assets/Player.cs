@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     Tail tail;
     //List<Tail> tail;
     private int lengthTail = 0;
+    private Vector3 rotate;
+    public Quaternion rot = Quaternion.identity;
 
     // аналогично скорость вращения 60 градусов в секунду по умолчанию
     public float rotationSpeed = 60;
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
         // записываем его в локальную переменную
         _controller = GetComponent<CharacterController>();
 
+        rotate = transform.forward;
         // создаем хвост
         // current - текущая цель элемента хвоста, начинаем с головы
        current = transform;
@@ -70,7 +73,7 @@ public class Player : MonoBehaviour
 
         // получаем значение горизонтальной оси ввода
         float horizontal = Input.GetAxis("Horizontal");
-
+     
         // вращаем трансформ вокруг оси Y 
         transform.Rotate(0, rotationSpeed * Time.deltaTime * horizontal, 0);
 
@@ -78,7 +81,33 @@ public class Player : MonoBehaviour
 
         // движение выполняем с помощью контроллера в сторону, куда смотрит трансформ игрока
         // двигаем змею постоянно
-        _controller.Move(transform.forward * speed * Time.deltaTime /* * vertical*/);
+        _controller.Move(transform.forward * speed * Time.deltaTime/* * vertical*/);
+        /*
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            rot.eulerAngles = new Vector3(0, 270, 0);
+            HeadSnake.transform.rotation = rot;
+            rotate = transform.forward;
+                        
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            rot.eulerAngles = new Vector3(0, 90, 0);
+            HeadSnake.transform.rotation = rot;
+            rotate = transform.forward;           
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rotate = transform.forward;
+            rot.eulerAngles = new Vector3(0, 180, 0);
+            HeadSnake.transform.rotation = rot;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rotate = transform.forward;
+            rot.eulerAngles = new Vector3(0, 0, 0);
+            HeadSnake.transform.rotation = rot;
+        }*/
     }
     
     void OnTriggerEnter(Collider col)
@@ -95,6 +124,8 @@ public class Player : MonoBehaviour
             lengthTail++;
             tail = (GameObject.CreatePrimitive(PrimitiveType.Cube).AddComponent<Tail>());
 
+            tail.collider.isTrigger = true;
+
             // помещаем "хвост" за "хозяина"
             tail.transform.position = current.transform.position - current.transform.forward * 2;
             // ориентация хвоста как ориентация хозяина
@@ -104,7 +135,7 @@ public class Player : MonoBehaviour
             // дистанция между элементами хвоста - 2 единицы
             tail.targetDistance = 2;
             // удаляем с хвоста колайдер, так как он не нужен
-            Destroy(tail.collider);
+            //Destroy(tail.collider);
             // следующим хозяином будет новосозданный элемент хвоста
             current = tail.transform;
 
