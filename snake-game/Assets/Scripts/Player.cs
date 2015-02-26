@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
             }
             else if (lengthTail == 2)
             {
-                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/BodyTeil"));
+                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/BodyTail2"));
                 tail = BodyTail.AddComponent<Tail>();
                 //Debug.Log("{1} tail" + tail);
                 //Instantiate(Resources.Load("Prefabs/BodyTeil"))<Tail>//(GameObject)Instantiate(Resources.Load("Prefabs/BodyTeil"));
@@ -159,21 +159,24 @@ public class Player : MonoBehaviour
                 // элемент хвоста должен следовать за хозяином, поэтому передаем ему ссылку на его
                 tail.target = current.transform;
                 // дистанция между элементами хвоста - 2 единицы
-                tail.targetDistance = 3;
+                tail.targetDistance = 2.4f;
                 current = tail.transform;
-
-                Vector3 pos = tailTail.transform.GetChild(0).position;
-                pos.z -= 1f;
-                tailTail.transform.GetChild(0).position = pos;
                 
                 tailTail.transform.rotation = transform.rotation;
                 tailTail.target = current.transform;
-                tailTail.targetDistance = 0.1f;
+                tailTail.targetDistance = 0.01f;
+                
+                //Vector3 pos = tailTail.transform.GetChild(0).position;
+                //pos.z += 1f;
+                //pos.x += 0.05f;
+                //tailTail.transform.GetChild(0).position = pos;
+                
+                
                 //tailTail.transform.Rotate(0, 180, 0);
             }
             else
             {
-                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/BodyTeil"));
+                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/BodyTail2"));
                 tail = BodyTail.AddComponent<Tail>();
                 //Debug.Log("{1} tail" + tail);
                 //Instantiate(Resources.Load("Prefabs/BodyTeil"))<Tail>//(GameObject)Instantiate(Resources.Load("Prefabs/BodyTeil"));

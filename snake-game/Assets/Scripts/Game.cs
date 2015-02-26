@@ -2,6 +2,8 @@
 
 public class Game : MonoBehaviour
 {
+    public GameObject camera;
+    //public SelectCamera selectCamera = ;
     // материал стен
     public Material wallMaterial;
 
@@ -12,7 +14,7 @@ public class Game : MonoBehaviour
     public int countWals = 10;
 
     private string _pointsString;
-    private int _lastPonts = -1;
+    private int _lastPonts = -1;    
 
     // генерируем уровень при загрузке сцены
     public void Awake()
@@ -70,5 +72,6 @@ public class Game : MonoBehaviour
             wall.collider.isTrigger = true;
         }
 
-    }
+    }  
+        
 }
