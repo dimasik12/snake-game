@@ -404,6 +404,35 @@ public class Player : MonoBehaviour
             Application.LoadLevel("GameOver");
         }
     }
+
+    public void RightButton()
+    {
+        rot.eulerAngles = new Vector3(0, 90, 0);
+        HeadSnake.transform.rotation = rot;
+        rotate = -transform.right;
+    }
+
+    public void LeftButton()
+    {
+        rot.eulerAngles = new Vector3(0, 270, 0);
+        HeadSnake.transform.rotation = rot;
+        rotate = -transform.right;
+    }
+
+    public void UpButton()
+    {
+        rot.eulerAngles = new Vector3(0, 0, 0);
+        HeadSnake.transform.rotation = rot;
+        rotate = -transform.right;
+    }
+
+    public void DownButton()
+    {
+        rot.eulerAngles = new Vector3(0, 180, 0);
+        HeadSnake.transform.rotation = rot;
+        rotate = -transform.right;
+    }                    
+
     /*
     void CreateTail(int lengthTail)
     {
