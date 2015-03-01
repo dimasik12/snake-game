@@ -20,20 +20,24 @@ public class Food : MonoBehaviour
         Destroy(gameObject);
 
         // Генерируем новую еду
-        GenerateNewFood();
+        GenerateNewFood("Prefabs/Food");
     }
 
     // функция создания новой еды
-    public static void GenerateNewFood()
+    public static void GenerateNewFood(string typeFood)
     {
         // создаем экземпляр еды, предварительно загружая префаб из ресурсов
-        GameObject food = (GameObject)Instantiate(Resources.Load("Prefabs/Food", typeof(GameObject)));
+        //GameObject food = (GameObject)Instantiate(Resources.Load("Prefabs/Food", typeof(GameObject)));
+        GameObject food = (GameObject)Instantiate(Resources.Load(typeFood, typeof(GameObject)));
 
         // цикл подбора положения еды
         while (true)
         {
             // ставим еду в рандомное место
-            food.transform.position = new Vector3(Random.Range(-24, 24), 0, Random.Range(-50, 50));
+            if (SelectIntricacy.intricacy == "profi")
+                food.transform.position = new Vector3(Random.Range(-30, 30), 1, Random.Range(-30, 30));
+            else
+            food.transform.position = new Vector3(Random.Range(-35, 35), 1, Random.Range(-35, 35));
             // получаем размер ее колайдера в мировых координатах
             Bounds foodBounds = food.collider.bounds;
 

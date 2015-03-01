@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Game : MonoBehaviour
 {
-    public GameObject camera;
-    //public SelectCamera selectCamera = ;
     // материал стен
     public Material wallMaterial;
 
@@ -14,19 +14,88 @@ public class Game : MonoBehaviour
     public int countWals = 10;
 
     private string _pointsString;
-    private int _lastPonts = -1;    
+    private int _lastPonts = -1;
+ 
+    public static string numberCombination;
+    private int randomNumber;
+    public Text text;    
 
     // генерируем уровень при загрузке сцены
     public void Awake()
     {
+        switch (SelectIntricacy.intricacy)
+        {
+            case "easy":
+            GameObject easy = (GameObject)Instantiate(Resources.Load("Prefabs/Lab1", typeof(GameObject)));
+            easy.transform.position = new Vector3(0, 0, 0);
+            break;
+            case "average":
+            GameObject average = (GameObject)Instantiate(Resources.Load("Prefabs/Lab2", typeof(GameObject)));
+            average.transform.position = new Vector3(0, 0, 0);            
+            break;
+            case "complex":
+            GameObject complex = (GameObject)Instantiate(Resources.Load("Prefabs/Lab3", typeof(GameObject)));
+            complex.transform.position = new Vector3(0, 0, 0);
+            break;
+            case "profi":
+            GameObject profi = (GameObject)Instantiate(Resources.Load("Prefabs/Lab4 1", typeof(GameObject)));
+            profi.transform.position = new Vector3(0, 0, 0);
+            break;
+        }
+        //GameObject intricacy = (GameObject)Instantiate(Resources.Load("Prefabs/Lab2_fbx", typeof(GameObject)));
+        //intricacy.transform.position = new Vector3(0, 0, 0);  
+
+        //text = GetComponent<Text>();
         // обнуляем очки
         points = 0;
 
+        //задаем начальную комбинацию
+        for (int i = 0; i < 10; i++)
+        {
+            randomNumber = Random.Range(0, 9);
+            switch(randomNumber)
+            {
+                case 0:
+                    Food.GenerateNewFood("Prefabs/Food");
+                    break;
+                case 1:
+                    Food.GenerateNewFood("Prefabs/Food 1");
+                    break;
+                case 2:
+                    Food.GenerateNewFood("Prefabs/Food 2");
+                    break;
+                case 3:
+                    Food.GenerateNewFood("Prefabs/Food 3");
+                    break;
+                case 4:
+                    Food.GenerateNewFood("Prefabs/Food 4");
+                    break;
+                case 5:
+                    Food.GenerateNewFood("Prefabs/Food 5");
+                    break;
+                case 6:
+                    Food.GenerateNewFood("Prefabs/Food 6");
+                    break;
+                case 7:
+                    Food.GenerateNewFood("Prefabs/Food 7");
+                    break;
+                case 8:
+                    Food.GenerateNewFood("Prefabs/Food 8");
+                    break;
+                case 9:
+                    Food.GenerateNewFood("Prefabs/Food 9");
+                    break;
+            }            
+            numberCombination += randomNumber.ToString();
+            Debug.Log(numberCombination);
+        }
+        //text.text = numberCombination;
         // генерируем уровень
-        GenerateLevel();
+        //GenerateLevel();
 
         // ставим первую еду
-        Food.GenerateNewFood();
+        //for (int i = 0; i < 10; i++)
+            //Food.GenerateNewFood("Prefabs/Food");
     }
 
     public void Update()
@@ -37,6 +106,8 @@ public class Game : MonoBehaviour
         _lastPonts = points;
         // форматируем очки в формате четырех цифр, начинающихся с нулей
         _pointsString = "Score: " + points.ToString("0000");
+
+        text.text = numberCombination;
     }
 
 

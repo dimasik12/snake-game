@@ -64,11 +64,12 @@
      <Compile Include="Assets\Scripts\LookAt.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\SelectCamera.cs" />
+     <Compile Include="Assets\Scripts\SelectIntricacy.cs" />
+     <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\Tail.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\Scripts\TopCamera.cs" />
-     <Compile Include="Assets\SelectCamera.cs" />
-     <Compile Include="Assets\StartGame.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity3d/Unity3d/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
