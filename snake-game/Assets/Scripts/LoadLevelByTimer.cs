@@ -6,15 +6,12 @@ public class LoadLevelByTimer : MonoBehaviour
     // время до загрузки уровня
     public float delay = 3; 
 
-    // функция старт имеет типа IEnumerator из пространства имен System.Collections. 
-    // данный тип необходим для поддержки функцией Start механизма сопрограмм
-    // подробнее о сопрограммах читайте в статье "Сопрограммы"
     public IEnumerator Start()
     {
-        // задержка на заданное число секунд
+        // задержка на 3 сек
         yield return new WaitForSeconds(delay);
 
-        // загрузка уровня с указанным именем
+        // загрузка главного меню
         Application.LoadLevel("SnakeMenu");
     }
 }

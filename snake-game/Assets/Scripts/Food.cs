@@ -2,32 +2,10 @@
 
 public class Food : MonoBehaviour
 {
-    // количество очков, которое дает еда при съедании
-    public int points = 10;
-
-    public void Update()
-    {
-        // вращаем еду со скоростью 60 градусов в секунду
-        transform.Rotate(Vector3.up, 60 * Time.deltaTime);
-    }
-
-    public void Eat()
-    {
-        // прибавляем очки еды к общему числу очков
-        Game.points += points;
-
-        // уничтожаем объект еды
-        Destroy(gameObject);
-
-        // Генерируем новую еду
-        GenerateNewFood("Prefabs/Food");
-    }
-
     // функция создания новой еды
     public static void GenerateNewFood(string typeFood)
     {
         // создаем экземпляр еды, предварительно загружая префаб из ресурсов
-        //GameObject food = (GameObject)Instantiate(Resources.Load("Prefabs/Food", typeof(GameObject)));
         GameObject food = (GameObject)Instantiate(Resources.Load(typeFood, typeof(GameObject)));
 
         // цикл подбора положения еды
@@ -43,10 +21,7 @@ public class Food : MonoBehaviour
 
             bool intersects = false;
 
-            // Проверяем со всеми колайдерами кроме колайдера самой еды.
-            // Данная фукнция использует габаритные контейнеры колайдеров для
-            // сравнения. Если используются сложные колайдеры в уровне, то
-            // данное сравнение будет не верным.
+            // Проверяем со всеми колайдерами кроме колайдера самой еды           
             foreach (Collider objectColiider in FindObjectsOfType(typeof(Collider)))
             {
                 if (objectColiider != food.collider)

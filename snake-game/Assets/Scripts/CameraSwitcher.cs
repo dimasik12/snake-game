@@ -5,8 +5,8 @@ public class CameraSwitcher : MonoBehaviour {
     public Camera hirdPersonCamera;
     public Camera topCamera;
 
-	// Use this for initialization
 	void Start () {
+        // проверка какая камера была выбрана
         if (SelectCamera.typeCam == true)
         {
             topCamera.enabled = false;
@@ -18,10 +18,6 @@ public class CameraSwitcher : MonoBehaviour {
             hirdPersonCamera.enabled = false;
         }
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	}	
+
 }

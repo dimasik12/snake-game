@@ -86,7 +86,7 @@ public class Snake : MonoBehaviour {
             if (food != null)
             {
                 // врезались в еду, "съедаем" ее
-                food.Eat();
+                //food.Eat();
             }
             else
             {

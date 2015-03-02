@@ -54,22 +54,20 @@
      <Compile Include="Assets\CNControls\Scripts\CNTouchpad.cs" />
      <Compile Include="Assets\Game2\Snake.cs" />
      <Compile Include="Assets\Game2\SpawnFood.cs" />
-     <Compile Include="Assets\Scripts\Action.cs" />
      <Compile Include="Assets\Scripts\CameraSwitcher.cs" />
      <Compile Include="Assets\Scripts\Check.cs" />
      <Compile Include="Assets\Scripts\Exit.cs" />
      <Compile Include="Assets\Scripts\Food.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
+     <Compile Include="Assets\Scripts\IGenerateLevel.cs" />
+     <Compile Include="Assets\Scripts\LabGeneration.cs" />
      <Compile Include="Assets\Scripts\LoadLevelByTimer.cs" />
      <Compile Include="Assets\Scripts\LookAt.cs" />
-     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\SelectCamera.cs" />
      <Compile Include="Assets\Scripts\SelectIntricacy.cs" />
      <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\Tail.cs" />
-     <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
-     <Compile Include="Assets\Scripts\TopCamera.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity3d/Unity3d/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
