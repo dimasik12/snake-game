@@ -20,8 +20,8 @@ public class Exit : MonoBehaviour
 
     public void ExitGeme()
     {
-        Debug.Log("Exit");
         Application.Quit();
+        Debug.Log("Exit");
     }
 
     public void CancelExitWindow()
