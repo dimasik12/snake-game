@@ -4,35 +4,20 @@ using UnityEngine.UI;
 
 public class Check : MonoBehaviour
 {
-    public Text text;
-    private int randomNumber;
-    
+    private int _randomNumber;
 
-    // Use this for initialization
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.gameObject.name);
+        // проверка не столкнулся с едой
         Food food = col.collider.GetComponent<Food>();
         if (col != null)
-        {            
-            Destroy(gameObject);
-            
-
-           
+        {  
+            // уничтожение обьекта
+            Destroy(gameObject);         
             }
-
-            randomNumber = Random.Range(0, 9);
-            switch (randomNumber)
+            // генерация случайного числа и загрузка соответсвующего префаба
+            _randomNumber = Random.Range(0, 9);
+            switch (_randomNumber)
             {
                 case 0:
                     Food.GenerateNewFood("Prefabs/0");
@@ -65,11 +50,7 @@ public class Check : MonoBehaviour
                     Food.GenerateNewFood("Prefabs/9");
                     break;
             }
-            Game.numberCombination += randomNumber.ToString();  
-            
-
-            //Food.GenerateNewFood("Prefabs/Food");          
-        
+            Game.numberCombination += _randomNumber.ToString();       
     }
 }
 

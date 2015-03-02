@@ -3,12 +3,7 @@ using System.Collections;
 
 public class SelectIntricacy : MonoBehaviour
 {
-    public static string intricacy;
-    public void IntricacyLavel()
-    {
-        //GameObject intricacy = (GameObject)Instantiate(Resources.Load("Prefabs/Lab2_fbx", typeof(GameObject)));
-        //intricacy.transform.position = new Vector3(0, 0, 0);        
-    }
+    public static string intricacy;  
 
     public void ExitIntricacyMenu()
     {

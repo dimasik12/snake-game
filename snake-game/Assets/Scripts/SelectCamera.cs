@@ -3,31 +3,39 @@ using System.Collections;
 
 public class SelectCamera : MonoBehaviour 
 {
-    public Animation camera;
+    //public Animation camera;
     public Animator cam;
     public static bool typeCam = false;
+    private bool _buttonCam = false;
 
     public void ClickButtonCamera()
     {
         cam.cullingMode = AnimatorCullingMode.AlwaysAnimate;
-        cam.Play("ClickButtonCamera");
+        // проверка на нажатие кнопки "Камера"
+        if (!_buttonCam)
+        {
+            cam.Play("ClickButtonCamera");
+            _buttonCam = true;
+        }
+        else if(_buttonCam)
+        {
+            cam.Play("CloseButtonCamera");
+            _buttonCam = false;
+        }
     }
     public void SwitchCameraThirdPerson()
     {
         cam.cullingMode = AnimatorCullingMode.AlwaysAnimate;
-        if (typeCam == false)
+        // проверка, какая камера была выбрана
+        if (!typeCam)
         {
             cam.Play("SwitchCamera");
-            typeCam = true;
-            Debug.Log(typeCam);
+            typeCam = true;           
         }
-        else if(typeCam == true)
+        else if(typeCam)
         {
             cam.Play("SwitchTopCamera");
-            typeCam = false;
-            Debug.Log(typeCam);
-        }
-
-        //camera.Play("SwitchCamera");
+            typeCam = false;           
+        }       
     }
 }

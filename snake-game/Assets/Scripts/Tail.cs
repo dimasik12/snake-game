@@ -18,9 +18,9 @@ public class Tail : MonoBehaviour
         // если расстояние до цели хвоста больше заданного
         if (distance > targetDistance)
         {
-            // двигаем хвост
+            // смещение хвоста
             transform.position += direction.normalized * (distance - targetDistance);
-            // смотрим на цель
+            // направление на цель
             transform.LookAt(target);
         }
     }
