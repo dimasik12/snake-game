@@ -7,7 +7,7 @@ public class StartGame : MonoBehaviour
 
     public void ButtonClickGame()
     {
-        Application.LoadLevel("Game");
+        Application.LoadLevel("IntricacyMenu");
     }
 
     public void HideButton()
