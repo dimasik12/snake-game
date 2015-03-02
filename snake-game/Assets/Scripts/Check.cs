@@ -6,7 +6,6 @@ public class Check : MonoBehaviour
 {
     public Text text;
     private int randomNumber;
-
     
 
     // Use this for initialization
@@ -21,7 +20,7 @@ public class Check : MonoBehaviour
 
     }
     void OnTriggerEnter(Collider col)
-    {        
+    {
         Debug.Log(col.gameObject.name);
         Food food = col.collider.GetComponent<Food>();
         if (col != null)
@@ -66,7 +65,7 @@ public class Check : MonoBehaviour
                     Food.GenerateNewFood("Prefabs/9");
                     break;
             }
-            Game.numberCombination += randomNumber.ToString(); ; 
+            Game.numberCombination += randomNumber.ToString();  
             
 
             //Food.GenerateNewFood("Prefabs/Food");          
