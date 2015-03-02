@@ -36,34 +36,34 @@ public class Check : MonoBehaviour
             switch (randomNumber)
             {
                 case 0:
-                    Food.GenerateNewFood("Prefabs/Food");
+                    Food.GenerateNewFood("Prefabs/0");
                     break;
                 case 1:
-                    Food.GenerateNewFood("Prefabs/Food 1");
+                    Food.GenerateNewFood("Prefabs/1");
                     break;
                 case 2:
-                    Food.GenerateNewFood("Prefabs/Food 2");
+                    Food.GenerateNewFood("Prefabs/2");
                     break;
                 case 3:
-                    Food.GenerateNewFood("Prefabs/Food 3");
+                    Food.GenerateNewFood("Prefabs/3");
                     break;
                 case 4:
-                    Food.GenerateNewFood("Prefabs/Food 4");
+                    Food.GenerateNewFood("Prefabs/4");
                     break;
                 case 5:
-                    Food.GenerateNewFood("Prefabs/Food 5");
+                    Food.GenerateNewFood("Prefabs/5");
                     break;
                 case 6:
-                    Food.GenerateNewFood("Prefabs/Food 6");
+                    Food.GenerateNewFood("Prefabs/6");
                     break;
                 case 7:
-                    Food.GenerateNewFood("Prefabs/Food 7");
+                    Food.GenerateNewFood("Prefabs/7");
                     break;
                 case 8:
-                    Food.GenerateNewFood("Prefabs/Food 8");
+                    Food.GenerateNewFood("Prefabs/8");
                     break;
                 case 9:
-                    Food.GenerateNewFood("Prefabs/Food 9");
+                    Food.GenerateNewFood("Prefabs/9");
                     break;
             }
             Game.numberCombination += randomNumber.ToString(); ; 
