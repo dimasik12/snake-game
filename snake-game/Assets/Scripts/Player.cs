@@ -117,26 +117,26 @@ public class Player : MonoBehaviour
         if (SelectCamera.typeCam == false)
         {
             _controller.Move(rotate * speed * Time.deltaTime/* * vertical*/);
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 rot.eulerAngles = new Vector3(0, 0, 0);
                 HeadSnake.transform.rotation = rot;
                 rotate = -transform.right;
 
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
                 rot.eulerAngles = new Vector3(0, 180, 0);
                 HeadSnake.transform.rotation = rot;
                 rotate = -transform.right;
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 rotate = -transform.right;
                 rot.eulerAngles = new Vector3(0, 270, 0);
                 HeadSnake.transform.rotation = rot;
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 rotate = -transform.right;
                 rot.eulerAngles = new Vector3(0, 90, 0);
@@ -152,34 +152,34 @@ public class Player : MonoBehaviour
         string nameFood = col.gameObject.name;
          switch (nameFood)
             {
-                case "Food(Clone)":
+                case "0(Clone)":
                     numberFood = 0;
                     break;
-                case "Food 1(Clone)":
+                case "1(Clone)":
                     numberFood = 1;
                     break;
-                case "Food 2(Clone)":
+                case "2(Clone)":
                     numberFood = 2;
                     break;
-                case "Food 3(Clone)":
+                case "3(Clone)":
                     numberFood = 3;
                     break;
-                case "Food 4(Clone)":
+                case "4(Clone)":
                     numberFood = 4;
                     break;
-                case "Food 5(Clone)":
+                case "5(Clone)":
                     numberFood = 5;
                     break;
-                case "Food 6(Clone)":
+                case "6(Clone)":
                     numberFood = 6;
                     break;
-                case "Food 7(Clone)":
+                case "7(Clone)":
                     numberFood = 7;
                     break;
-                case "Food 8(Clone)":
+                case "8(Clone)":
                     numberFood = 8;
                     break;
-                case "Food 9(Clone)":
+                case "9(Clone)":
                     numberFood = 9;
                     break;
             }
@@ -203,34 +203,34 @@ public class Player : MonoBehaviour
 
         switch (nameFood)
         {
-            case "Food(Clone)":
+            case "0(Clone)":
                 numberFood = 0;
                 break;
-            case "Food 1(Clone)":
+            case "1(Clone)":
                 numberFood = 1;
                 break;
-            case "Food 2(Clone)":
+            case "2(Clone)":
                 numberFood = 2;
                 break;
-            case "Food 3(Clone)":
+            case "3(Clone)":
                 numberFood = 3;
                 break;
-            case "Food 4(Clone)":
+            case "4(Clone)":
                 numberFood = 4;
                 break;
-            case "Food 5(Clone)":
+            case "5(Clone)":
                 numberFood = 5;
                 break;
-            case "Food 6(Clone)":
+            case "6(Clone)":
                 numberFood = 6;
                 break;
-            case "Food 7(Clone)":
+            case "7(Clone)":
                 numberFood = 7;
                 break;
-            case "Food 8(Clone)":
+            case "8(Clone)":
                 numberFood = 8;
                 break;
-            case "Food 9(Clone)":
+            case "9(Clone)":
                 numberFood = 9;
                 break;
             default:
