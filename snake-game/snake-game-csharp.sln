@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{1CF987E0-AC64-0E41-37EE-F7001460327E}") = "snake-game", "Assembly-CSharp-vs.csproj", "{5132360B-A722-2BA8-1175-E950B87D5FFC}"
 EndProject
-Project("{1CF987E0-AC64-0E41-37EE-F7001460327E}") = "snake-game", "Assembly-CSharp-Editor-vs.csproj", "{AFA23D39-27BC-75BB-3F2C-A84B765F0DD0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,15 +13,11 @@ Global
 		{5132360B-A722-2BA8-1175-E950B87D5FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5132360B-A722-2BA8-1175-E950B87D5FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5132360B-A722-2BA8-1175-E950B87D5FFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFA23D39-27BC-75BB-3F2C-A84B765F0DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFA23D39-27BC-75BB-3F2C-A84B765F0DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFA23D39-27BC-75BB-3F2C-A84B765F0DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFA23D39-27BC-75BB-3F2C-A84B765F0DD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																							GlobalSection(MonoDevelopProperties) = preSolution
 =======
 <<<<<<< HEAD
 																																																																														GlobalSection(MonoDevelopProperties) = preSolution
