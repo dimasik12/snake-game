@@ -77,7 +77,6 @@ public class Game : MonoBehaviour
                     break;
             }            
             numberCombination += _randomNumber.ToString();
-            Debug.Log(numberCombination);
         }        
     }
 
