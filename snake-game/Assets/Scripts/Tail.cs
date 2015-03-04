@@ -5,7 +5,7 @@ public class Tail : MonoBehaviour
     public Transform target;
     public float targetDistance;
     public GameObject tailBody;
-    private Vector3 pos = new Vector3(0.1f, 0, 0);
+    //private Vector3 pos = new Vector3(0.1f, 0, 0);
 
     public void Update()
     {
