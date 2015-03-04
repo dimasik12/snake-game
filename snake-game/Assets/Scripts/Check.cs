@@ -8,8 +8,7 @@ public class Check : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        // проверка не столкнулся с едой
-        Food food = col.collider.GetComponent<Food>();
+        // проверка не столкнулся с едой      
         if (col != null)
         {  
             // уничтожение обьекта

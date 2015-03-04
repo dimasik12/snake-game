@@ -15,7 +15,7 @@ public class Food : MonoBehaviour
             if (SelectIntricacy.intricacy == "profi")
                 food.transform.position = new Vector3(Random.Range(-30, 30), 1, Random.Range(-30, 30));
             else
-            food.transform.position = new Vector3(Random.Range(-35, 35), 1, Random.Range(-35, 35));
+            food.transform.position = new Vector3(Random.Range(-30, 30), 1, Random.Range(-30, 30));
             // получаем размер ее колайдера в мировых координатах
             Bounds foodBounds = food.collider.bounds;
 

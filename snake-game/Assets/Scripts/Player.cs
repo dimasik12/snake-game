@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
             HeadSnake.transform.position = new Vector3(0f, 0.77f, 0f);
             valueSpeed = 0.4f;
         }
-        rotate = -transform.right;
+        rotate = transform.forward;
         // записывается CharacterController в локальную переменную
         _controller = GetComponent<CharacterController>();
 
@@ -69,11 +69,11 @@ public class Player : MonoBehaviour
             float horizontal = Input.GetAxis("Horizontal");
 
             // вращение трансформ вокруг оси Z 
-            transform.Rotate(0, 0, rotationSpeed * Time.deltaTime * horizontal);            
+            transform.Rotate(0, rotationSpeed * Time.deltaTime * horizontal, 0);            
 
             // движение выполняем с помощью контроллера в сторону, куда смотрит трансформ игрока
             // двигаем змею постоянно
-            _controller.Move(-transform.right * speed * Time.deltaTime/* * vertical*/);
+            _controller.Move(transform.forward * speed * Time.deltaTime/* * vertical*/);
         }
 
         // если выбрана камера с видом сверху
@@ -83,34 +83,34 @@ public class Player : MonoBehaviour
             // проверка на нажатие клавишь WSAD и стрелок
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
-                rot.eulerAngles = new Vector3(0, 0, 0);
+                rot.eulerAngles = new Vector3(0, 270, 0);
                 HeadSnake.transform.rotation = rot;
-                rotate = -transform.right;
+                rotate = transform.forward;
 
             }
             else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
-                rot.eulerAngles = new Vector3(0, 180, 0);
+                rot.eulerAngles = new Vector3(0, 90, 0);
                 HeadSnake.transform.rotation = rot;
-                rotate = -transform.right;
+                rotate = transform.forward;
             }
             else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
-                rotate = -transform.right;
-                rot.eulerAngles = new Vector3(0, 270, 0);
+                rotate = transform.forward;
+                rot.eulerAngles = new Vector3(0, 180, 0);
                 HeadSnake.transform.rotation = rot;
             }
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                rotate = -transform.right;
-                rot.eulerAngles = new Vector3(0, 90, 0);
+                rotate = transform.forward;
+                rot.eulerAngles = new Vector3(0, 0, 0);
                 HeadSnake.transform.rotation = rot;
             }
         }
     }
     
     void OnTriggerEnter(Collider col)
-    { 
+    {        
         // какая цыфры была сьедена
         string nameFood = col.gameObject.name;
          switch (nameFood)
@@ -157,9 +157,8 @@ public class Player : MonoBehaviour
             
             // прибавление очков с учетом бонуса
             Game.points += points * bonus;
-            text.text = "Бонус: х "+bonus.ToString();        
-        
-        Food food = col.collider.GetComponent<Food>();
+            text.text = "Бонус: х "+bonus.ToString();     
+           
         // если змея врезалась в еду
         if (numberFood < 11)
         {
@@ -180,12 +179,20 @@ public class Player : MonoBehaviour
             // прибавление 1 элемента хвоста
             if (lengthTail == 1)
             {
-                GameObject TailEnd = (GameObject)Instantiate(Resources.Load("Prefabs/EndTail"));                          
+                GameObject TailEnd = (GameObject)Instantiate(Resources.Load("Prefabs/snake_tail"));                          
                 tailTail = TailEnd.AddComponent<Tail>(); 
 
-                Vector3 pos = tailTail.transform.GetChild(0).position;
-                pos.x += 0.31f;
-                tailTail.transform.GetChild(0).position = pos;
+                Vector3 pos = tailTail.transform.GetChild(2).position;
+                Vector3 pos1 = tailTail.transform.GetChild(1).position;
+                Vector3 pos2 = tailTail.transform.GetChild(0).position;  
+                pos1.x -= 0.31f;
+                pos2.x += 0.31f;
+                pos.z += 1.5f;
+                pos1.z += 1.5f;
+                pos2.z += 1.5f;
+                tailTail.transform.GetChild(2).position = pos;
+                tailTail.transform.GetChild(1).position = pos2;
+                tailTail.transform.GetChild(0).position = pos1;
 
                 tailTail.transform.rotation = transform.rotation;
                 tailTail.target = current.transform;
@@ -194,7 +201,7 @@ public class Player : MonoBehaviour
             // прибавление второго элемента хвоста
             else if (lengthTail == 2)
             {
-                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/BodyTail2"));
+                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/snake_center"));
                 tail = BodyTail.AddComponent<Tail>();              
 
                 // помещаем "хвост" за "хозяина"
@@ -204,7 +211,7 @@ public class Player : MonoBehaviour
                 // элемент хвоста должен следовать за хозяином, поэтому передаем ему ссылку на его
                 tail.target = current.transform;
                 // дистанция между элементами хвоста
-                tail.targetDistance = 2.4f;
+                tail.targetDistance = 0.1f;
                 current = tail.transform;
 
                 // ориентация конца хвоста как ориентация хозяина
@@ -212,12 +219,12 @@ public class Player : MonoBehaviour
                 // указываем на хозяина
                 tailTail.target = current.transform;
                 // дистанция между элементом тела и конца хвоста
-                tailTail.targetDistance = 0.01f;              
+                tailTail.targetDistance = 1.5f;              
             }
             // прибавление всех остальных кусков тела
             else
             {
-                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/BodyTail2"));
+                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/snake_center"));
                 tail = BodyTail.AddComponent<Tail>();                
 
                 // помещаем "хвост" за "хозяина"
@@ -227,7 +234,7 @@ public class Player : MonoBehaviour
                 // элемент хвоста должен следовать за хозяином, поэтому передаем ему ссылку на его
                 tail.target = current.transform;
                 // дистанция между элементами хвоста - 2 единицы
-                tail.targetDistance = 2;
+                tail.targetDistance = 1.5f;
                 current = tail.transform;
 
                 tailTail.transform.position = current.transform.position - current.transform.forward * 2;
@@ -236,7 +243,7 @@ public class Player : MonoBehaviour
                 // указываем на хозяина
                 tailTail.target = current.transform;
                 // дистанция между элементом тела и конца хвоста
-                tailTail.targetDistance = 0.1f;               
+                tailTail.targetDistance = 1.5f;               
             }         
             // увеличение скорости после поедания еды            
             speed = speed + valueSpeed; ;
