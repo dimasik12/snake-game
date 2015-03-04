@@ -10,7 +10,7 @@ public class Check : MonoBehaviour
     {
         // проверка не столкнулся с едой      
         if (col != null)
-        {  
+        {            
             // уничтожение обьекта
             Destroy(gameObject);         
             }

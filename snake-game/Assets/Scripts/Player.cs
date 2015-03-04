@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    public float speed = 3;
+    public static float speed = 3;
     Transform current;
     public GameObject Life1;
     public GameObject Life2;
@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public float valueSpeed;
 
     public int points = 10;
+
+    public AudioClip clip;
 
     // скорость вращения 60 градусов в секунду по умолчанию
     public float rotationSpeed = 60;
@@ -96,21 +98,22 @@ public class Player : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
-                rotate = transform.forward;
                 rot.eulerAngles = new Vector3(0, 180, 0);
                 HeadSnake.transform.rotation = rot;
+                rotate = transform.forward;
             }
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                rotate = transform.forward;
                 rot.eulerAngles = new Vector3(0, 0, 0);
                 HeadSnake.transform.rotation = rot;
+                rotate = transform.forward;
             }
         }
     }
     
     void OnTriggerEnter(Collider col)
-    {        
+    {
+        audio.PlayOneShot(clip);
         // какая цыфры была сьедена
         string nameFood = col.gameObject.name;
          switch (nameFood)
@@ -289,29 +292,29 @@ public class Player : MonoBehaviour
 
     public void RightButton()
     {
-        rot.eulerAngles = new Vector3(0, 90, 0);
+        rot.eulerAngles = new Vector3(0, 0, 0);
         HeadSnake.transform.rotation = rot;
-        rotate = -transform.right;
+        rotate = transform.forward;
     }
 
     public void LeftButton()
     {
-        rot.eulerAngles = new Vector3(0, 270, 0);
+        rot.eulerAngles = new Vector3(0, 180, 0);
         HeadSnake.transform.rotation = rot;
-        rotate = -transform.right;
+        rotate = transform.forward;
     }
 
     public void UpButton()
     {
-        rot.eulerAngles = new Vector3(0, 0, 0);
+        rot.eulerAngles = new Vector3(0, 270, 0);
         HeadSnake.transform.rotation = rot;
-        rotate = -transform.right;
+        rotate = transform.forward;
     }
 
     public void DownButton()
     {
-        rot.eulerAngles = new Vector3(0, 180, 0);
+        rot.eulerAngles = new Vector3(0, 90, 0);
         HeadSnake.transform.rotation = rot;
-        rotate = -transform.right;
+        rotate = transform.forward;
     }                    
 }
