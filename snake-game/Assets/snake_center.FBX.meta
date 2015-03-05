@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fdab5d4bc9bd1f54f884273b463d2cc3
+guid: 8380f3ce6da2ab24f815e537c57ad5dc
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,27 +7,27 @@ ModelImporter:
     100002: Bone004
     100004: Bone009
     100006: Bone010
-    100008: Group65534
-    100010: Group65535
+    100008: hand_003
+    100010: hand_005
     100012: Object002
     100014: //RootNode
     400000: Bone003
     400002: Bone004
     400004: Bone009
     400006: Bone010
-    400008: Group65534
-    400010: Group65535
+    400008: hand_003
+    400010: hand_005
     400012: Object002
     400014: //RootNode
-    2300000: Group65534
-    2300002: Group65535
+    2300000: hand_003
+    2300002: hand_005
     2300004: Object002
-    3300000: Group65534
-    3300002: Group65535
+    3300000: hand_003
+    3300002: hand_005
     3300004: Object002
     4300000: Object002
-    4300002: Group65534
-    4300004: Group65535
+    4300002: hand_003
+    4300004: hand_005
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -45,49 +45,7 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      firstFrame: 0
-      lastFrame: 20
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Bone003
-        weight: 1
-      - path: Bone003/Bone004
-        weight: 1
-      - path: Bone003/Group65534
-        weight: 1
-      - path: Bone009
-        weight: 1
-      - path: Bone009/Bone010
-        weight: 1
-      - path: Bone009/Group65535
-        weight: 1
-      - path: Object002
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []

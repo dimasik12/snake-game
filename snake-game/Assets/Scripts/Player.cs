@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
             // прибавление 1 элемента хвоста
             if (lengthTail == 1)
             {
-                GameObject TailEnd = (GameObject)Instantiate(Resources.Load("Prefabs/snake_tail"));                          
+                GameObject TailEnd = (GameObject)Instantiate(Resources.Load("Prefabs/snake_tail2"));                          
                 tailTail = TailEnd.AddComponent<Tail>(); 
 
                 Vector3 pos = tailTail.transform.GetChild(2).position;
@@ -204,7 +204,7 @@ public class Player : MonoBehaviour
             // прибавление второго элемента хвоста
             else if (lengthTail == 2)
             {
-                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/snake_center"));
+                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/snake_center2"));
                 tail = BodyTail.AddComponent<Tail>();              
 
                 // помещаем "хвост" за "хозяина"
@@ -227,7 +227,7 @@ public class Player : MonoBehaviour
             // прибавление всех остальных кусков тела
             else
             {
-                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/snake_center"));
+                GameObject BodyTail = (GameObject)Instantiate(Resources.Load("Prefabs/snake_center2"));
                 tail = BodyTail.AddComponent<Tail>();                
 
                 // помещаем "хвост" за "хозяина"
@@ -270,11 +270,14 @@ public class Player : MonoBehaviour
             else if (Life3 != null)
             {
                 Destroy(Life3);
-                StartPositionSnake(SelectIntricacy.intricacy); 
+                StartPositionSnake(SelectIntricacy.intricacy);
             }
             // если жизни законцились, то загрузка сцены "Game over"
             else
-            Application.LoadLevel("GameOver");
+            {
+                speed = 3;
+                Application.LoadLevel("GameOver");
+            }
         }
     }
 
